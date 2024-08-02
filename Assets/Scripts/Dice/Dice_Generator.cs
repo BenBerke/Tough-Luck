@@ -19,14 +19,14 @@ public class Dice_Generator : MonoBehaviour
     [HideInInspector] public int savedScore;
 
     [HideInInspector] public int remainingDiceAmount; // Total cards in that round
-    [HideInInspector] public int remainingDiceInHand; // Cards that are not in the middle
+    public int remainingDiceInHand; // Cards that are not in the middle
     [HideInInspector] public int diceHeld; // Cards in the middle
 
     [SerializeField] float secondsInBetweenCardSpawns;
     public float cardMoveSpeed;
 
     bool firstTurn;
-    public bool cardGeneratingDone;
+    [HideInInspector] public bool cardGeneratingDone;
 
     [SerializeField] GameObject card;
     [SerializeField] Transform cardSpawnPosition;
@@ -106,6 +106,14 @@ public class Dice_Generator : MonoBehaviour
     {
         remainingDiceInHand = 0;
         yield return new WaitUntil(() => !animManager.animPlaying);
+
+        //diceNumbers[0] = 1;
+        //diceNumbers[1] = 1;
+        //diceNumbers[2] = 2;
+        //diceNumbers[3] = 2;
+        //diceNumbers[4] = 3;
+        //diceNumbers[5] = 3;
+
         for (int i = 0; i < diceAmount; i++)
         {
             if (diceInRound[i]) 
@@ -171,6 +179,7 @@ public class Dice_Generator : MonoBehaviour
     {
         roundScore = 0;
         enemyAI.cardHoldingDone = false;
+        enemyAI.amogus = true;
         for (int i = 0; i < diceAmount; i++)
         {
             cardManager.holdPositionIsFull[i] = false;
@@ -225,7 +234,7 @@ public class Dice_Generator : MonoBehaviour
             }
         }
         remainingDiceAmount = 6-d;
-        if (remainingDiceAmount == 0) EndTurn(true);
+        //if (remainingDiceAmount == 0) EndTurn(true);
         ResetCards();
         StartCoroutine(GenerateDice());
     }

@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         destScore = PlayerPrefs.GetInt("destScore");
-        print(destScore);
         if (PlayerPrefs.GetInt("ai") == 1) enemyActive = true;
         else enemyActive = false;
         winMenuParent.SetActive(false);
@@ -69,5 +68,6 @@ public class GameManager : MonoBehaviour
         GetComponent<Enemy_AI>().enabled = false;
         winText.text = firstPlayer ? (enemyActive ? "You Won!" : "First Player Won!") : (enemyActive ? "Tough Luck!" : "Second Player Won!");
         winMenuParent.SetActive(true);
+        Destroy(gameObject);
     }
 }

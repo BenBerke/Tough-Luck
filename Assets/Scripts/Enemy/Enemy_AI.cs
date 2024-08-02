@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Enemy_AI : MonoBehaviour
 {
-    public float timeSinceLastAction;
+    [HideInInspector] public float timeSinceLastAction;
     [SerializeField] float timeBetweenAction;
 
     [HideInInspector] public bool currentlyInAction;
     bool lastCardHoldFinished;
     bool _cardHoldingDone;
+
+    public bool amogus = true;
     public bool cardHoldingDone
     {
         get { return _cardHoldingDone; }
@@ -79,7 +81,6 @@ public class Enemy_AI : MonoBehaviour
                 StartCoroutine(HoldCards(i+1));
             }
         }
-
         if(lastCardHoldFinished)
         cardHoldingDone = true;
     }
@@ -103,12 +104,14 @@ public class Enemy_AI : MonoBehaviour
         lastCardHoldFinished = true;
         currentlyInAction = false;
     }
-
     void AfterCardHold()
     {
-        // WORK IN PROGRESS
-        /* currentlyInAction = true;
-        if (diceGenerator.remainingDiceInHand >= 3) diceGenerator.Reroll();
-        else*/ diceGenerator.EndTurn(true);
+        //if (diceGenerator.remainingDiceInHand >= 2)
+        //{
+        //    diceGenerator.Reroll();
+        //    amogus = false;
+        //}
+       // else
+        diceGenerator.EndTurn(true);
     }
 }
