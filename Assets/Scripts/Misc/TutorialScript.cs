@@ -33,7 +33,7 @@ public class TutorialScript : MonoBehaviour
         tutorialTexts[9] = "If you press shuffle, your points will be stored and all the cards you were holding will be destroyed. " +
             "The cards which you were not holding will be reshuffled.";
         tutorialTexts[10] = "This gives you the opportunity to earn more points.";
-        tutorialTexts[11] = "However, if your new of set cards can not be made into a valid combination, you will loose are your stored points and your turn will end.";
+        tutorialTexts[11] = "However, if your new set of cards can not be made into a valid combination, you will loose are your stored points and your turn will end.";
         tutorialTexts[12] = "If you do not want to risk loosing your points, you can end your turn and your stored points will be permanently saved.";
         tutorialTexts[13] = "This is your stored points for that round.";
         tutorialTexts[14] = "This is your permanently saved points. The goal of the game is to get this number to 3000.";
